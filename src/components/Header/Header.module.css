@@ -1,0 +1,16 @@
+.header {
+  background: black;
+  grid-area: h;
+}
+.header img{
+  width: 48px;
+}
+
+.header h1{
+  color: red;
+  text-align: center;
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: darkred 2px 2px 0, darkred -2px -2px 0, 
+               darkred -2px 2px 0, darkred 2px -2px 0;
+}

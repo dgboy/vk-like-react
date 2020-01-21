@@ -1,0 +1,21 @@
+.nav {
+  width: 200px;
+  
+  grid-area: n;
+  float: left; 
+  background: #222;
+}
+
+li {
+  list-style-type: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+li a {
+  text-decoration: none;
+  color: #999;
+}
+
+li a:hover {
+  color: white;
+}
