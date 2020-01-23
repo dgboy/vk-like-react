@@ -1,0 +1,13 @@
+.Post {
+  background: #555;
+  margin: 10px;
+  color: #999;
+}
+
+img{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 10px;
+  float: right;
+}

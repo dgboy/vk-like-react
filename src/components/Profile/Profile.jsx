@@ -1,5 +1,6 @@
 import React from 'react';
 import Css from './Profile.module.css';
+import Posts from './Posts/Posts';
 
 function Profile() {
   return(
@@ -7,7 +8,7 @@ function Profile() {
       <div>
         <img src="" alt="" srcset=""/>
       </div>
-      <div>My post</div>
+      <Posts />
     </div>
   );
 };
