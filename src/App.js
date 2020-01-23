@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
+import Dialogs from './components/Dialogs/Dialogs';
 
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
-      <Profile />
+      <div class="content">
+        {/*<Profile /> */}
+        <Dialogs />
+      </div>
       <Footer />
     </div>
   );

@@ -14,3 +14,8 @@
 body {
   background: gray;
 }
+
+.content {
+  background: #444;
+  grid-area: c;
+}
