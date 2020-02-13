@@ -1,63 +1,35 @@
 import React from 'react';
 import Css from './Dialogs.module.css';
-import { NavLink } from 'react-router-dom';
+import DialogItem from './DialogItem';
+import MessageItem from './MessageItem';
 
-const MessageItem = props => {
-  return(
-    <div className={Css.message}>{props.message}</div>
-  );
-};
-const DialogItem = props => {
-  return(
-    <div className={Css.dialogItem}>
-        <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>
-    </div>
-  );
-};
+
 const Dialogs = props => {
-  let dialogsData = [
-    { id: "1", name: "Kolya"},
-    { id: "2", name: "Nikita"},
-    { id: "3", name: "Sasha"}
-  ];
+  let newMessageElem = React.createRef();
+  
+  let addMessage = () => {
+    let text = newMessageElem.current.value;
+    alert(text); 
+  };
 
-  let dialogsElem = dialogsData.map(d => <DialogItem id={d.id} name={d.name} />);
+  let dialogElems = props.state.dialogs.map(elem => <DialogItem id={elem.id} name={elem.name} />);
+  let messageElems = props.state.messages.map(elem => <MessageItem id={elem.id} text={elem.text} />);
 
-
-  return(
+  return (
     <div className={Css.dialogs}>
       <div>
-        { dialogsElem }
+        {dialogElems}
       </div>
 
       <div className={Css.messages}>
-        <MessageItem message="Jamba, where are you? I miss you" />
-        <MessageItem message="I'm under ground" />
-        <MessageItem message="What are you forget there?" />
+        {messageElems}
+        <div className="add-message">
+          <textarea ref={newMessageElem} cols="60" rows="10"></textarea>
+          <button onClick={addMessage}>Send message</button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Dialogs;
-
-
-{/* + ' active'*/}
-{/*
-  <div className={Css.dialogsItems}>
-    <div className={Css.dialog}>
-      <NavLink to="/dialogs/1">Kolya</NavLink>
-    </div>
-    <div className={Css.dialog}>
-      <NavLink to="/dialogs/2">Nikita</NavLink>
-    </div>
-    <div className={Css.dialog}>
-      <NavLink to="/dialogs/3">Sasha</NavLink>
-    </div>
-  </div>
-  <div className={Css.messagesItems}>
-    <div className={Css.message}>Jamba, where are you? I miss you</div>
-    <div className={Css.message}>I'm under ground</div>
-    <div className={Css.message}>What are you forget there?</div>
-  </div> 
-*/}
