@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -6,18 +7,19 @@ import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 
-
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <Header />
-      <Navbar />
-      <div class="content">
-        {/*<Profile /> */}
-        <Dialogs />
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Navbar />
+        <div class="content">
+          <Route path='/profile' render={ () => <Profile state={ props.state.profilePage } /> } />
+          <Route path='/dialogs' render={ () => <Dialogs state={ props.state.dialogsPage } /> }/>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

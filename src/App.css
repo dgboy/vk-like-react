@@ -9,6 +9,7 @@
   "f f";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
+  color: #999;
 }
 
 body {
@@ -16,6 +17,20 @@ body {
 }
 
 .content {
-  background: #444;
+  background: #333;
   grid-area: c;
+}
+
+.active {
+  font-weight: bold;
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+}
+
+a:hover {
+  color: white;
 }

@@ -2,13 +2,10 @@ import React from 'react';
 import Css from './Profile.module.css';
 import Posts from './Posts/Posts';
 
-function Profile() {
+const Profile = props => {
   return(
     <div className={Css.content}>
-      <div>
-        <img src="" alt="" srcset=""/>
-      </div>
-      <Posts />
+      <Posts state={props.state.posts} />
     </div>
   );
 };

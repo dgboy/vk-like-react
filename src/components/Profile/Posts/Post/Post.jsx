@@ -7,9 +7,9 @@ function Post(props) {
   return(
     <div className={Css.Post}>
       <img src="https://sun9-33.userapi.com/c205528/v205528079/281c3/iujjqeo-5vQ.jpg" alt=""/>
-      <div>Daniil Gorbunov</div>
-      <div>{Date()}</div><br/>
-      <div>{props.text}</div>
+      <h4>Daniil Gorbunov</h4>
+      <small>{Date()}</small>
+      <p>{props.text}</p>
     </div>
   );
 };
