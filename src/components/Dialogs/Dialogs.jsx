@@ -6,15 +6,14 @@ import MessageItem from './MessageItem';
 
 const Dialogs = props => {
   let newMessageElem = React.createRef();
-  
+
   let addMessage = () => {
-    let text = newMessageElem.current.value;
-    alert(text); 
+    let msg = newMessageElem.current.value;
+    props.addMessage(msg);
   };
 
   let dialogElems = props.state.dialogs.map(elem => <DialogItem id={elem.id} name={elem.name} />);
   let messageElems = props.state.messages.map(elem => <MessageItem id={elem.id} text={elem.text} />);
-
   return (
     <div className={Css.dialogs}>
       <div>
