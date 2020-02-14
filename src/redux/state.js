@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from './../render';
+
 let state = {
   profilePage: {
     posts: [
@@ -7,6 +9,7 @@ let state = {
     ]
   },
   dialogsPage: {
+    newMessage: '',
     dialogs: [
       { id: 1, name: "Kolya"},
       { id: 2, name: "Nikita"},
@@ -20,13 +23,22 @@ let state = {
   }
 }
 
-export let addMessage = (message) => {
+window.state = state;
+
+export let addMessage = () => {
   let newMessage = {
     id: state.dialogsPage.messages.length + 1,
-    text: message
+    text: state.dialogsPage.newMessage
   }
 
   state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessage = '';
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessage = (text) => {
+  state.dialogsPage.newMessage = text;
+  rerenderEntireTree(state);
 }
 
 export default state;
