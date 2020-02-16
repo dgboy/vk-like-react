@@ -1,3 +1,9 @@
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+
+export const addMsgActionCreater = () => ({type: ADD_MESSAGE});
+export const updateNewMsgActionCreater = text => ({type: UPDATE_NEW_MESSAGE_TEXT, text: text});
+
 let store = {
   _state: {
     profilePage: {
@@ -45,7 +51,7 @@ let store = {
     this._callSubscriber(this._state);
   },
   dispatch(action) {
-    if (action.type === "ADD-MESSAGE") {
+    if (action.type === ADD_MESSAGE) {
 
       let message = {
         id: this._state.dialogsPage.messages.length + 1,
@@ -56,13 +62,15 @@ let store = {
       this._state.dialogsPage.newMessage = '';
       this._callSubscriber(this._state);
 
-    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
-      
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+
       this._state.dialogsPage.newMessage = action.text;
       this._callSubscriber(this._state);
     }
   } 
 }
+
+
 
 window.store = store;
 
