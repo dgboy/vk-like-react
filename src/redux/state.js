@@ -43,7 +43,25 @@ let store = {
   updateNewMessage(text) {
     this._state.dialogsPage.newMessage = text;
     this._callSubscriber(this._state);
-  }
+  },
+  dispatch(action) {
+    if (action.type === "ADD-MESSAGE") {
+
+      let message = {
+        id: this._state.dialogsPage.messages.length + 1,
+        text: this._state.dialogsPage.newMessage
+      }
+    
+      this._state.dialogsPage.messages.push(message);
+      this._state.dialogsPage.newMessage = '';
+      this._callSubscriber(this._state);
+
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      
+      this._state.dialogsPage.newMessage = action.text;
+      this._callSubscriber(this._state);
+    }
+  } 
 }
 
 window.store = store;

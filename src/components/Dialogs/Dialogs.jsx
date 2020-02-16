@@ -9,13 +9,20 @@ const Dialogs = props => {
 
   let addMessage = () => {
     // let msg = newMessageElem.current.value;
-    props.addMessage();
-    //newMessageElem.current.value = '';
+    // props.addMessage();
+    // newMessageElem.current.value = '';
+    
+    props.dispatch({
+      type: "ADD-MESSAGE"
+    });
   };
 
   let onMessageChange = () => {
     let text = newMessageElem.current.value;
-    props.updateNewMessage(text);
+    props.dispatch({
+      type: "UPDATE-NEW-MESSAGE-TEXT",
+      text: text
+    });
   }
 
   let dialogElems = props.state.dialogs.map(elem => <DialogItem id={elem.id} name={elem.name} />);
