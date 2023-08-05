@@ -1,5 +1,6 @@
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 
 export const addMsgActionCreater = () => ({type: ADD_MESSAGE});
 export const updateNewMsgActionCreater = text => ({type: UPDATE_NEW_MESSAGE_TEXT, text: text});
@@ -24,7 +25,8 @@ let store = {
         { id: 1, text: "Jamba, where are you? I miss you"},
         { id: 2, text: "I'm under ground"},
         { id: 3, text: "What are you forget there?"}
-      ]
+      ],
+      newMessageBody: ''
     }
   },
   _callSubscriber() {
@@ -52,7 +54,6 @@ let store = {
   },
   dispatch(action) {
     if (action.type === ADD_MESSAGE) {
-
       let message = {
         id: this._state.dialogsPage.messages.length + 1,
         text: this._state.dialogsPage.newMessage
@@ -63,8 +64,11 @@ let store = {
       this._callSubscriber(this._state);
 
     } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-
       this._state.dialogsPage.newMessage = action.text;
+      this._callSubscriber(this._state);
+
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogsPage.newMessageBody = action.body;
       this._callSubscriber(this._state);
     }
   } 
